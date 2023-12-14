@@ -1,25 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://ct78tkv0fmpe1"]
+[gd_scene load_steps=3 format=3 uid="uid://ct78tkv0fmpe1"]
 
+[ext_resource type="Script" path="res://scenes/pipe.gd" id="1_4ttwd"]
 [ext_resource type="Texture2D" uid="uid://dsj08nyhaj0ux" path="res://images/pipe.png" id="1_dh14q"]
 
-[node name="Pipes" type="Node2D"]
+[node name="Pipes" type="CharacterBody2D" groups=["pipe"]]
+collision_layer = 4
+script = ExtResource("1_4ttwd")
 
-[node name="BottomPipe" type="StaticBody2D" parent="."]
+[node name="CollisionBottomPipe" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(877, 408, 877, 461, 892, 461, 892, 1085, 1016, 1085, 1016, 461, 1030, 461, 1030, 408)
 
-[node name="Sprite2D" type="Sprite2D" parent="BottomPipe"]
+[node name="SpriteBottomPipe" type="Sprite2D" parent="CollisionBottomPipe"]
 position = Vector2(996, 707)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_dh14q")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BottomPipe"]
-polygon = PackedVector2Array(877, 408, 877, 461, 892, 461, 892, 1085, 1016, 1085, 1016, 461, 1030, 461, 1030, 408)
-
-[node name="TopPipe" type="StaticBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="TopPipe"]
-position = Vector2(911, 0)
-scale = Vector2(-0.7, -0.7)
-texture = ExtResource("1_dh14q")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TopPipe"]
+[node name="CollisionTopPipe" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -100)
 polygon = PackedVector2Array(891, -377, 1015, -377, 1015, 246, 1030, 246, 1030, 299, 877, 299, 877, 246, 891, 246)
+
+[node name="SpriteTopPipe" type="Sprite2D" parent="CollisionTopPipe"]
+position = Vector2(911, 0)
+rotation = 3.14159
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_dh14q")
