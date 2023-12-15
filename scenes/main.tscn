@@ -47,7 +47,7 @@ wait_time = 2.3
 autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(884, 318)
+position = Vector2(876, 218)
 
 [node name="PipeEnd" type="Area2D" parent="."]
 collision_layer = 4
